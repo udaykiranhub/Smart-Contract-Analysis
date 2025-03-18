@@ -1,0 +1,128 @@
+
+
+====================== EVM (Ethereum Virtula Machine) ======================================
+
+
+Storage LayOut =>
+
+1.
+**************************************************************************************************
+contract X  {
+    uint256 public a = 1;  // Slot 0
+    uint128 public b = 2;  // Slot 1 (partially filled)
+    uint128 public c = 3;  // Slot 1 (same as 'b', packed)
+    bool public d = true;  // Slot 2 (partially filled)
+    address public e = msg.sender; // Slot 3
+
+    struct Data {
+        uint256 x;
+        uint256 y;
+    }
+    Data public data = Data(10, 20); // Slot 4 & 5 (separate storage)
+
+    mapping(address => uint256) public balances; // Uses keccak256(address + slot)
+
+    string public text = "Hello"; // Stored separately, reference stored in slot 6
+}
+
+                  Every Slot has :256 bits (32 Bytes)
+        -----------------------------------------------------
+slot 0 :          a           (32 bytes)
+        ------------------------------------------------------
+slot 1:           b and c     (16 byte + 16 bytes)
+        ------------------------------------------------------
+slot 2:           d           (1 byte) (31 waste)
+        ------------------------------------------------------
+slot 3:           e       
+        ------------------------------------------------------
+slot 4:           x in struct
+        ------------------------------------------------------
+slot 5:           y in struct
+        -----------------------------------------------------
+
+
+
+***************************************************************************************************
+
+2.
+****************************************************************************************************
+
+
+contract x{
+    struct User {
+    uint128 id;   // 16 bytes
+    bool active;  // 1 byte
+    uint8 level;  // 1 byte
+    uint256 score; // 32 bytes (New slot)
+}
+
+}
+        --------------------------------
+slot 0:  id (uint128) + active (bool) + level (uint8)
+        ---------------------------------
+slot 1: score (uint256)
+        ---------------------------------
+
+
+
+**************************************************************************************************
+
+3.
+**************************************************************************************************
+
+
+
+contract {
+mapping(address => uint256) public balances;  // Slot 0
+function setBalance(address user, uint256 amount) public 
+{
+        balances[user] = amount;
+}
+
+}
+
+
+storageSlot = keccak256(abi.encode(0xABC, 0))
+
+       --------------------------------
+slot 0:
+      ---------------------------------
+      -
+      -
+      -
+
+slot n:
+      -------------------------------=-
+
+
+***************************************************************************************************
+
+
+======================================================================================================
+
+====================== Gas Optimization =============================== 
+
+1.
+
+***************************************************************************************************
+unsafe =>
+uint128 a; // Slot 0
+uint256 b; // Slot 1
+uint128 c; // Slot 2
+
+safe =>
+
+uint128 a;
+uint128 c;
+uint256 b; // This ensures `a` and `c` are packed into one slot.
+
+*****************************************************************************************************
+
+
+
+
+================= Rule For Storage ==============================
+
+1.Every storage slot can store up to 32 bytes of data.
+2.If a variable is ≤ 32 bytes, it fits into a single slot.
+3.If a variable is > 32 bytes (e.g., mapping, array, struct), it gets its own slot and additional storage.
