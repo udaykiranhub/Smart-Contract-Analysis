@@ -70,11 +70,33 @@ contract AMM {
 }
 
 
-
-
-
-Constant product formulae=>
+=== Constant product formulae  =>
  x*y=k;
+
+
+For instance ,   Gold=1000
+                Diamond =2000
+
+                k=Gold* Diamond
+                 = 2000000
+
+       1.  Swap for   100 Gold to the Diamond = > goldNew=1000+100
+                                                         =1100
+       2.   diamondNew =>
+            diamondNew= k / goldNew
+               
+                =2000000/11000
+                =1818.1818
+      3. Diamonds to the user => Diamond - diamondNew
+                         =2000-1818.1818
+                         =181.8182
+      4. Updated  Diamonds Are =2000 - 181.8282
+                               =1818.1818
+
+
+
+
+
 
 
 

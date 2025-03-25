@@ -2,37 +2,32 @@
 pragma solidity ^0.8.0;
 
 contract MyERC20Token {
-    // Mapping from address to token balance
+
     mapping(address => uint256) private _balances;
 
-    // Mapping from address to spender allowances
+
     mapping(address => mapping(address => uint256)) private _allowances;
 
-    // Total supply of the token
+
     uint256 private _totalSupply;
 
-    // Name of the token
+
     string public name;
 
-    // Symbol of the token
+
     string public symbol;
 
-    // Decimals for the token (e.g., 18 for standard ERC-20 tokens)
     uint8 public decimals;
-
-    // Event emitted when tokens are transferred
     event Transfer(address indexed from, address indexed to, uint256 value);
 
-    // Event emitted when an allowance is set by a spender
     event Approval(address indexed owner, address indexed spender, uint256 value);
-
-    // Constructor to initialize the token details and supply
+    
     constructor(string memory _name, string memory _symbol, uint256 initialSupply, uint8 _decimals) {
         name = _name;
         symbol = _symbol;
         decimals = _decimals;
-        _totalSupply = initialSupply * (10 ** uint256(decimals)); // Adjust supply for decimals
-        _balances[msg.sender] = _totalSupply; // Assign the total supply to the contract creator
+        _totalSupply = initialSupply * (10 ** uint256(decimals)); 
+        _balances[msg.sender] = _totalSupply; 
     }
 
     // Function to get the total token supply

@@ -1,0 +1,15 @@
+****Current Ethereum Block Gas Limit***
+.The Ethereum mainnet has a block gas limit of around 30 million gas (as of recent updates), but it changes dynamically based on network conditions and miner voting.
+
+=> Example Calculation
+.Suppose the block gas limit = 30,000,000 gas
+
+.A simple ETH transfer costs ~ 21,000 gas
+
+.The number of transactions in the block:
+
+.30,000,000÷21,000≈1,428 transactions
+
+##  If transaction exceeds  Block gas limit then Rejected!
+
+

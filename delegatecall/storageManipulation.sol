@@ -1,19 +1,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
@@ -36,7 +23,7 @@ contract HackMe {
     }
 
     fallback() external payable {
-    //     address(lib).delegatecall(msg.data);
+    //   address(lib).delegatecall(msg.data);
     
     // Here is the msg.sender is attacker function .
     // So this msg.sender will executes that Hack me contract and go to the lib contract .
