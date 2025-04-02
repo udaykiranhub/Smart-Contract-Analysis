@@ -34,7 +34,7 @@ I have analyzed and audited several blockchain projects, including:
 - **Foundry & Slither**
 - ** Web3.js**
 - **Remix IDE & VS Code**
-- - **IPFS storage **
+- **IPFS storage **
 
 ## Collaboration & Contact
 I am open to working on blockchain security research, audits, and development projects. If you need a security review for your smart contracts or want to discuss blockchain security, feel free to reach out!
@@ -44,8 +44,9 @@ I am open to working on blockchain security research, audits, and development pr
 ## Contribution & Collaboration
 I am open to collaborating on blockchain security research, audits, and development projects. If you have smart contracts that require a security review or want to discuss vulnerabilities, feel free to reach out.
 
-## Contact
+## Contact Me 
 - **GitHub**: [udaykiranhub](https://github.com/udaykiranhub)
 - **LinkedIn**: [Uday Kiran Pedda](https://www.linkedin.com/in/uday-kiran-pedda-65aa73271)
 - **Twitter**: [@UdayKir03362466](https://x.com/UdayKir03362466?t=ZF7UaXqGV9zrYER1e13xpQ&s=08)
+- **E-mail**:peddaudaykiran1@gmail.com
 
